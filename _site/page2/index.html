@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="description" content="关于程序与设计、黑客与画家 | 黄玄，Web & Mobile Lover，Software Engineer，UX Designer | 这里是 @Hux黄玄 的个人博客，与你一起发现更大的世界。">
+    <meta name="keywords"  content="黄玄, Hux黄玄, Hux, 鬼栈, huxpro, @huxpro, 黄玄的博客, Hux Blog, 博客, 个人网站, 互联网, Web, JavaScript, 前端, 设计">
+    <meta name="theme-color" content="#000000">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="黄玄的博客 | Hux Blog">
+    
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="我干了什么 究竟拿了时间换了什么">
+    
+    <meta property="og:image" content="http://localhost:4000/img/avatar-hux-ny.jpg">
+    <meta property="og:url" content="http://localhost:4000/page2/">
+    <meta property="og:site_name" content="黄玄的博客 | Hux Blog">
+    
+    <title>黄玄的博客 | Hux Blog</title>
+
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="/pwa/manifest.json">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="http://localhost:4000/page2/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/hux-blog.min.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Navigation -->
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Hux Blog</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                    
+                    
+                    
+                    <li>
+                        <a href="/about/">About</a>
+                    </li>
+                    
+                    
+                    
+                    <li>
+                        <a href="/archive/">Archive</a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    <li>
+                        <a href="/portfolio/">Portfolio</a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    var __HuxNav__ = {
+        close: function(){
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        },
+        open: function(){
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+
+    // Bind Event
+    $toggle.addEventListener('click', function(e){
+        if ($navbar.className.indexOf('in') > 0) {
+            __HuxNav__.close()
+        }else{
+            __HuxNav__.open()
+        }
+    })
+
+    /**
+     * Since Fastclick is used to delegate 'touchstart' globally
+     * to hack 300ms delay in iOS by performing a fake 'click',
+     * Using 'e.stopPropagation' to stop 'touchstart' event from 
+     * $toggle/$collapse will break global delegation.
+     * 
+     * Instead, we use a 'e.target' filter to prevent handler
+     * added to document close HuxNav.  
+     *
+     * Also, we use 'click' instead of 'touchstart' as compromise
+     */
+    document.addEventListener('click', function(e){
+        if(e.target == $toggle) return;
+        if(e.target.className == 'icon-bar') return;
+        __HuxNav__.close();
+    })
+</script>
+
+
+    <!-- Page Header -->
+
+
+
+
+
+
+
+<header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        
+        <div class="site-heading">
+        
+          <h1>Hux Blog</h1>
+          <span class="subheading">我干了什么 究竟拿了时间换了什么</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+<!-- Main Content -->
+<div class="container">
+	<div class="row">
+        
+
+<!-- USE SIDEBAR -->
+    <!-- PostList Container -->
+    		<div class="
+                col-lg-8 col-lg-offset-1
+                col-md-8 col-md-offset-1
+                col-sm-12
+                col-xs-12
+                postlist-container
+            ">
+    			
+<div class="post-preview">
+    <a href="/2017/04/06/html-document/">
+        <h2 class="post-title">
+            「知乎」如何理解 <code>document</code> 对象是 <code>HTMLDocument</code> 的实例？
+        </h2>
+        
+        <h3 class="post-subtitle">
+            Why is <code>document</code> an instance of <code>HTMLDocument</code>?
+        </h3>
+        
+        <div class="post-content-preview">
+            
+                
+  这篇文章转载自我在知乎上的回答
+
+
+谢邀。
+
+首先要理解的是 DOM 是 API，是一组无关编程语言的接口（Interfaces）而非实现（Implementation）。前端平时常说的 DOM 其实只是浏览器通过 ECMAScript（JavaScript）对 DOM 接口的一种实现。
+
+其次要知道的是，DOM 既是为 HTML 制定的，也是为 XML 制定的。而两者各有一些特异的部...
+            
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by Hux on April 6, 2017
+    </p>
+</div>
+<hr>
+
+<div class="post-preview">
+    <a href="/2017/02/09/nextgen-web-pwa/">
+        <h2 class="post-title">
+            下一代 Web 应用模型 —— Progressive Web App
+        </h2>
+        
+        <h3 class="post-subtitle">
+            The Next Generation Application Model For The Web - Progressive Web App
+        </h3>
+        
+        <div class="post-content-preview">
+            
+                
+  今年 9 月份的时候，《程序员》杂志社就邀请我写一篇关于 PWA 的文章。后来花式拖稿，拖过了 10 月的 QCon，11 月的 GDG DevFest，终于在 12 月把这篇长文熬了出来。几次分享的不成熟，这次的结构算是比较满意了。「 可能是目前中文世界里对 PWA 最全面详细的长文了」，希望你能喜欢。
+本文首发于 CSDN 与《程序员》2017 年 2 月刊，同步发布于 Hux B...
+            
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by Hux on February 9, 2017
+    </p>
+</div>
+<hr>
+
+<div class="post-preview">
+    <a href="/2017/01/09/wechat-miniapp-ux/">
+        <h2 class="post-title">
+            如何客观地评价「小程序」的体验?
+        </h2>
+        
+        <h3 class="post-subtitle">
+            Wechat Mini-Program vs. the Web, a UX comparison
+        </h3>
+        
+        <div class="post-content-preview">
+            
+                
+  本文首发于我的知乎专栏 The Little Programmer，转载请保留链接 ;)
+
+
+2017 年 1 月 9 号凌晨，看完《星战》回家，发现朋友圈都炸了……原来是「小程序」如约公测（以下简称小程序）。果然贵圈人都睡得晚啊，一个个大半夜了精神得不行。
+
+截图推荐什么的已经漫天都是了，而且连 「推荐小程序的小程序」都已经出现了，我们就直入正题吧，今天笔者不跟你们聊情怀，就聊体验：...
+            
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by Hux on January 9, 2017
+    </p>
+</div>
+<hr>
+
+<div class="post-preview">
+    <a href="/2016/11/20/sw-101-gdgdf/">
+        <h2 class="post-title">
+            Service Worker 101「GDG DevFest 2016 北京」
+        </h2>
+        
+        <h3 class="post-subtitle">
+            🎞  Slides:Service Worker 101, Working Offline and Instant Loading (GDG DevFest 2016 Beijing)
+        </h3>
+        
+        <div class="post-content-preview">
+            
+                
+  下滑这里查看更多内容
+
+
+TLDR; It covers lots of cool stuff about Service Worker!
+
+Watching Fullscreen → 
+
+
+    
+    Scanning on mobile
+
+
+Demo Code → 
+
+
+  Hello World of Service Worker
+  Make your own Offli...
+            
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by Hux on November 20, 2016
+    </p>
+</div>
+<hr>
+
+<div class="post-preview">
+    <a href="/2016/10/20/pwa-qcon2016/">
+        <h2 class="post-title">
+            Progressive Web Apps，复兴序章「QCon 上海 2016」
+        </h2>
+        
+        <h3 class="post-subtitle">
+            🎞  Slides:Progressive Web Apps, Make Web Great Again. (QCon Shanghai 2016)
+        </h3>
+        
+        <div class="post-content-preview">
+            
+                
+  下滑这里查看更多内容
+
+
+Watching Fullscreen →
+
+Watching Video →
+
+
+    
+    Scanning on mobile
+
+
+Catalog
+
+
+  The State Of Web
+  Rethinking Hybridzation
+  PWA 101
+    
+      Definition
+      Add To HomeScree...
+            
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by Hux on October 20, 2016
+    </p>
+</div>
+<hr>
+
+<div class="post-preview">
+    <a href="/2016/09/22/the-open-web/">
+        <h2 class="post-title">
+            Web 在继续离我们远去
+        </h2>
+        
+        <h3 class="post-subtitle">
+            After the release of Wechat Mini-Program
+        </h3>
+        
+        <div class="post-content-preview">
+            
+                
+  本文首发于我的知乎专栏 The Little Programmer，转载请保留链接 ;)
+
+
+今天微信又刷爆了我的朋友圈 —— 小程序，之前传说的应用号。
+
+不过这篇不谈小程序的技术细节，也不去猜测（因为知道得很清楚……），
+
+也不谈小程序会对中国互联网带来什么影响（自有产品经理会来谈……），
+
+我们说说 Web，the Web。
+
+我们常说的 Web，其实是 World Wide W...
+            
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by Hux on September 22, 2016
+    </p>
+</div>
+<hr>
+
+<div class="post-preview">
+    <a href="/2016/06/05/pwa-in-my-pov/">
+        <h2 class="post-title">
+            Progressive Web App 之我见
+        </h2>
+        
+        <h3 class="post-subtitle">
+            🎞  Slides:Progressive Web App, in my points of view
+        </h3>
+        
+        <div class="post-content-preview">
+            
+                
+  下滑这里查看更多内容
+
+
+Watching Fullscreen →
+
+
+    
+    Scanning on mobile
+
+
+Catalog
+
+
+  WHAT is Progressive Web App?
+  1 - Installability
+  2 - App Shell
+  3 - Offline
+    
+      SERVICE WORKER!
+    
+  
+...
+            
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by Hux on June 5, 2016
+    </p>
+</div>
+<hr>
+
+<div class="post-preview">
+    <a href="/2016/02/01/React-vs-Angular2/">
+        <h2 class="post-title">
+            「译」React vs Angular 2：冰与火之歌
+        </h2>
+        
+        <h3 class="post-subtitle">
+            React versus Angular 2: There Will Be Blood
+        </h3>
+        
+        <div class="post-content-preview">
+            
+                
+  这篇文章转载自我在知乎专栏「前端外刊评论」上发表的文章。
+
+
+Angular 2 已经发布 Beta 版，而且似乎很有信心在 2016 年成为热门框架。是时候进行一场巅峰对决了，我们来看看它如何与 React 这个 2015 年的新宠抗衡。
+
+免责声明：我之前很喜欢使用 Angular 1，不过在 2015 年转到了 React。最近我也在 Pluralsight 上发布了一门关于 R...
+            
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by Hux on February 1, 2016
+    </p>
+</div>
+<hr>
+
+<div class="post-preview">
+    <a href="/2015/12/28/css-sucks-2015/">
+        <h2 class="post-title">
+            都 2015 年了，CSS 怎么还是这么糟糕
+        </h2>
+        
+        <h3 class="post-subtitle">
+            🎞  Slides:CSS Still Sucks 2015
+        </h3>
+        
+        <div class="post-content-preview">
+            
+                
+  下滑这里查看更多内容
+
+
+Watching Fullscreen →
+
+
+
+你也可以通过扫描二维码在手机上观看
+
+
+这个 Web Slides 开源在我的 Github 上，欢迎你帮助我完善这个展示文稿，你可以给我提 issue，可以 fork &amp; pull request。如果它能帮助到你了，希望你还能不吝啬 star 一下这个项目
+
+Catalog
+
+
+  Document...
+            
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by Hux on December 28, 2015
+    </p>
+</div>
+<hr>
+
+<div class="post-preview">
+    <a href="/2015/12/15/ios9-safari-web/">
+        <h2 class="post-title">
+            「译」iOS 9，为前端世界都带来了些什么？
+        </h2>
+        
+        <h3 class="post-subtitle">
+            iOS 9, Safari and the Web: 3D Touch, new Responsive Web Design, Native integration and HTML5 APIs
+        </h3>
+        
+        <div class="post-content-preview">
+            
+                2015 年 9 月，Apple 重磅发布了全新的 iPhone 6s/6s Plus、iPad Pro 与全新的操作系统 watchOS 2 与 tvOS 9（是的，这货居然是第 9 版），加上已经发布的 iOS 9，它们都为前端世界带来了哪些变化呢？作为一个 web 开发者，是时候站在我们的角度来说一说了！
+
+
+  注！ 该译文存在大量英文术语，笔者将默认读者知晓 ES6、viewpor...
+            
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by Hux on December 15, 2015
+    </p>
+</div>
+<hr>
+
+
+<!-- Pager -->
+
+<ul class="pager">
+    
+    <li class="previous">
+        <a href="/">&larr; Newer Posts</a>
+    </li>
+    
+    
+    <li class="next">
+        <a href="/page3">Older Posts &rarr;</a>
+    </li>
+    
+</ul>
+
+
+    		</div>
+    <!-- Sidebar Container -->
+            <div class="
+                col-lg-3 col-lg-offset-0
+                col-md-3 col-md-offset-0
+                col-sm-12
+                col-xs-12
+                sidebar-container
+            ">
+                <!-- Featured Tags -->
+                
+
+
+<section>
+    
+    <h5><a href="/archive/">FEATURED TAGS</a></h5>
+    <div class="tags">
+        
+        
+        
+        </a>
+        
+        
+                <a data-sort="0027" 
+                    href="/archive/?tag=%E7%9F%A5%E4%B9%8E"
+                    title="知乎"
+                    rel="10">知乎</a>
+        
+                <a data-sort="0018" 
+                    href="/archive/?tag=Web"
+                    title="Web"
+                    rel="19">Web</a>
+        
+                <a data-sort="0030" 
+                    href="/archive/?tag=UX%2FUI"
+                    title="UX/UI"
+                    rel="7">UX/UI</a>
+        
+                <a data-sort="0031" 
+                    href="/archive/?tag=%E4%BA%A7%E5%93%81"
+                    title="产品"
+                    rel="6">产品</a>
+        
+                <a data-sort="0031" 
+                    href="/archive/?tag=PWA"
+                    title="PWA"
+                    rel="6">PWA</a>
+        
+                <a data-sort="0033" 
+                    href="/archive/?tag=JavaScript"
+                    title="JavaScript"
+                    rel="4">JavaScript</a>
+        
+                <a data-sort="0033" 
+                    href="/archive/?tag=Slides"
+                    title="Slides"
+                    rel="4">Slides</a>
+        
+                <a data-sort="0034" 
+                    href="/archive/?tag=%E7%94%9F%E6%B4%BB"
+                    title="生活"
+                    rel="3">生活</a>
+        
+                <a data-sort="0034" 
+                    href="/archive/?tag=%E7%AC%94%E8%AE%B0"
+                    title="笔记"
+                    rel="3">笔记</a>
+        
+                <a data-sort="0034" 
+                    href="/archive/?tag=%E8%AF%91"
+                    title="译"
+                    rel="3">译</a>
+        
+                <a data-sort="0034" 
+                    href="/archive/?tag=%E9%98%BF%E9%87%8C"
+                    title="阿里"
+                    rel="3">阿里</a>
+        
+                <a data-sort="0034" 
+                    href="/archive/?tag=%F0%9F%87%AC%F0%9F%87%A7"
+                    title="🇬🇧"
+                    rel="3">🇬🇧</a>
+        
+                <a data-sort="0035" 
+                    href="/archive/?tag=%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6"
+                    title="计算机科学"
+                    rel="2">计算机科学</a>
+        
+                <a data-sort="0035" 
+                    href="/archive/?tag=%E8%AE%A1%E7%AE%97%E7%90%86%E8%AE%BA"
+                    title="计算理论"
+                    rel="2">计算理论</a>
+        
+                <a data-sort="0035" 
+                    href="/archive/?tag=CSS"
+                    title="CSS"
+                    rel="2">CSS</a>
+        
+                <a data-sort="0035" 
+                    href="/archive/?tag=Wechat"
+                    title="Wechat"
+                    rel="2">Wechat</a>
+        
+                <a data-sort="0035" 
+                    href="/archive/?tag=hUX+%E9%9A%8F%E6%83%B3%E5%BD%95"
+                    title="hUX 随想录"
+                    rel="2">hUX 随想录
+    </div>
+</section>
+
+
+                <!-- Short About -->
+                <section class="visible-md visible-lg">
+  <hr>
+  <h5><a href="/about/">ABOUT ME</a></h5>
+  <div class="short-about">
+    
+    <img src="/img/avatar-hux-ny.jpg" />
+    
+    
+    <p>For the next quantum leap<br>离开世界之前，一切都是过程</p>
+    
+    <!-- SNS Link -->
+    
+
+
+<ul class="list-inline">
+
+
+  
+  
+  <li>
+    <a href="https://twitter.com/huxpro">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+      </span>
+    </a>
+  </li>
+  
+  
+  <li>
+    <a target="_blank" href="https://www.zhihu.com/people/huxpro">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa  fa-stack-1x fa-inverse">知</i>
+      </span>
+    </a>
+  </li>
+  
+  
+  <li>
+    <a target="_blank" href="http://weibo.com/huxpro">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+      </span>
+    </a>
+  </li>
+  
+  
+  
+  <li>
+    <a target="_blank" href="https://github.com/huxpro">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+      </span>
+    </a>
+  </li>
+  
+  
+</ul>
+  </div>
+</section>
+
+                <!-- Friends Blog -->
+                
+<hr>
+<h5>FRIENDS</h5>
+<ul class="list-inline">
+  
+  <li><a href="http://mida.re/">乱序</a></li>
+  
+  <li><a href="http://qianduan.guru/">前端外刊评论</a></li>
+  
+  <li><a href="http://lingyu.wang/">天镶的博客</a></li>
+  
+  <li><a href="http://hmqk1995.github.io">Luke 的自留地</a></li>
+  
+  <li><a href="http://ebnbin.com/">Ebn's Blog</a></li>
+  
+  <li><a href="http://blog.smdcn.net">SmdCn's Blog</a></li>
+  
+  <li><a href="https://www.ruoyaowu.com/">David's Game</a></li>
+  
+  <li><a href="http://dhong.co">DHong Say</a></li>
+  
+  <li><a href="http://ingf.github.io/">尹峰以为</a></li>
+  
+  <li><a href="http://xieminis.me/">解旻的博客</a></li>
+  
+</ul>
+
+    		</div>
+        
+	</div>
+</div>
+
+
+
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <!-- SNS Link -->
+                
+
+
+<ul class="list-inline text-center">
+
+
+  
+  
+  <li>
+    <a href="https://twitter.com/huxpro">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+      </span>
+    </a>
+  </li>
+  
+  
+  <li>
+    <a target="_blank" href="https://www.zhihu.com/people/huxpro">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa  fa-stack-1x fa-inverse">知</i>
+      </span>
+    </a>
+  </li>
+  
+  
+  <li>
+    <a target="_blank" href="http://weibo.com/huxpro">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+      </span>
+    </a>
+  </li>
+  
+  
+  
+  <li>
+    <a target="_blank" href="https://github.com/huxpro">
+      <span class="fa-stack fa-lg">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+      </span>
+    </a>
+  </li>
+  
+  
+</ul>
+
+                <p class="copyright text-muted">
+                    Copyright &copy; Hux Blog 2019
+                    <br>
+                    Powered by <a href="http://huangxuan.me">Hux Blog</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="100px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=huxpro&repo=huxpro.github.io&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js "></script>
+
+<!-- Bootstrap Core JavaScript -->
+<!-- Currently, only navbar scroll-down effect at desktop still depends on this -->
+<script src="/js/bootstrap.min.js "></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js "></script>
+
+<!-- Service Worker -->
+
+<script src="/js/snackbar.js "></script>
+<script src="/js/sw-registration.js "></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!--
+     Because of the native support for backtick-style fenced code blocks
+     right within the Markdown is landed in Github Pages,
+     From V1.6, There is no need for Highlight.js,
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/
+     - https://github.com/jneen/rouge/wiki/list-of-supported-languages-and-lexers
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+
+
+
+<!--fastClick.js -->
+<script>
+    async("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+<script>
+    // dynamic User by Hux
+    var _gaId = 'UA-49627206-1';
+    var _gaDomain = 'huangxuan.me';
+
+    // Originial
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+
+<!-- Baidu Tongji -->
+
+
+
+<!-- Side Catalog -->
+
+
+
+<!-- Multi-Lingual -->
+
+
+
+
+<!-- Image to hack wechat -->
+<img src="/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>
