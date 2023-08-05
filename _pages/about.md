@@ -8,8 +8,11 @@ redirect_from:
   - /about.html
 ---
 
-This is Tian Kuan's home on the web!
 
+Research scientist at Tencent AI Lab. Research fields: AI video codec, Text-to-Image models.
+
+
+## Publications
 {% if author.googlescholar %}
   You can also find my articles on <u><a href="{{author.googlescholar}}">my Google Scholar profile</a>.</u>
 {% endif %}
