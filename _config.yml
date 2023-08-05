@@ -7,7 +7,7 @@
 
 # Site Settings
 locale                   : "en-US"
-title                    : "KuanTian"
+title                    : "Kuan Tian"
 title_separator          : "-"
 name                     : &name "Tian Kuan"
 description              : &description "Research scientist at Tencent AI Lab"
