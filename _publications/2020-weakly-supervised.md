@@ -1,7 +1,7 @@
 ---
 title: "Weakly-supervised nucleus segmentation based on point annotations: A coarse-to-fine self-stimulated learning strategy"
 collection: publications
-permalink: /publication/2020-weakly-supervised
+permalink: /publications/2020-weakly-supervised
 excerpt: 'This is a paper on weakly supervised segmentation of cell images.'
 date: 2020
 venue: 'MICCAI 2020'
