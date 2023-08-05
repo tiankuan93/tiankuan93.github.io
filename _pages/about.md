@@ -9,7 +9,11 @@ redirect_from:
 ---
 
 
-Research scientist at Tencent AI Lab. Research fields: AI video codec, Text-to-Image models.
+Research scientist at Tencent AI Lab. 
+
+Research fields: 
+- AI video codec
+- Text-to-Image models
 
 
 ## Publications
