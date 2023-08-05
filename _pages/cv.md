@@ -9,25 +9,23 @@ redirect_from:
 
 {% include base_path %}
 
-Education
-======
+------
+
+## Education
 * B.S. in Xidian University, 2010
 * M.S. in Xidian University, 2014
 
-Work experience
-======
+## Work experience
 * Summer 2017 - Now: Research Assistant
   * Tencent AI Lab.
 
   
-Skills
-======
+## Skills
 * AI Video Codec
 * Text-to-Image model
 * AI for Medical Image.
 
-Publications
-======
+## Publications
   <ul>{% for post in site.publications %}
     {% include archive-single-cv.html %}
   {% endfor %}</ul>
