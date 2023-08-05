@@ -1,7 +1,7 @@
 ---
 title: "Mimt: Masked image modeling transformer for video compression"
 collection: publications
-permalink: /publication/2023-02-01-MIMT-video-compression
+permalink: /publications/2023-02-01-MIMT-video-compression
 date: 2023-02-01
 venue: 'ICLR'
 paperurl: 'https://openreview.net/forum?id=j9m-mVnndbm'
