@@ -5,7 +5,7 @@ permalink: /publication/2023-10-01-towards-realtime-video-codec/
 date: 2023-10-01
 venue: 'Arxiv'
 paperurl: 'https://browse.arxiv.org/pdf/2309.11276.pdf'
-citation: 'Kuan Tian, Yonghang Guan, Jinxi Xiang, Jun Zhang, et. al'
+citation: 'Kuan Tian, Yonghang Guan, Jinxi Xiang, Jun Zhang, et al.'
 ---
 
 <a href='https://arxiv.org/abs/2309.11276'>Paper is here</a>
